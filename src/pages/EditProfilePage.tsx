@@ -24,7 +24,7 @@ const EditProfilePage: React.FC<EditProfilePageProps> = ({ user, setUser, goBack
 
   const handleUpdate = async () => {
   try {
-    const res = await axios.put(`http://localhost:5000/user/${user._id}`, {
+    const res = await axios.put(`${import.meta.env.VITE_API_URL}/user/${user._id}`, {
   name,
   email,
   password, // 👉 optional field

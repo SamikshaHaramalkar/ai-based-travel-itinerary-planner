@@ -66,7 +66,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin, isDarkMode, toggleDarkMo
     onSubmit: async (values, { setSubmitting }) => {
       setServerError('');
       try {
-        const url = `http://localhost:5000/api/${isSignUp ? 'register' : 'login'}`;
+        const url = `${import.meta.env.VITE_API_URL}/api/${isSignUp ? 'register' : 'login'}`;
         const payload = isSignUp
           ? {
               name: `${values.firstName} ${values.lastName}`.trim(),

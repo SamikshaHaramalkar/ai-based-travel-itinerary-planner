@@ -15,7 +15,7 @@ const AdminUsersPage: React.FC = () => {
   useEffect(() => {
     const token = localStorage.getItem("token");
 
-    fetch("http://localhost:5000/api/admin/users", {
+    fetch(`${import.meta.env.VITE_API_URL}/api/admin/users`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -44,7 +44,7 @@ const handleDelete = async (id: string) => {
   const token = localStorage.getItem("token");
 
   try {
-    const res = await fetch(`http://localhost:5000/api/admin/users/${id}`, {
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/admin/users/${id}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`,
