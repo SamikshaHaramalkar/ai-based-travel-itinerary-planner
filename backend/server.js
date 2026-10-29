@@ -9,14 +9,14 @@ const app = express();
 
 // ✅ ALLOW FRONTEND ORIGIN
 app.use(cors({
-  origin: "http://localhost:5173",   // Your frontend address
+  origin: [
+    "http://localhost:5173",
+    "https://ai-based-travel-itinerary-planner.netlify.app"
+  ],
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true
 }));
-
-// ✅ Handle Preflight requests for all routes
-app.use(cors());
 
 
 app.use(express.json());
